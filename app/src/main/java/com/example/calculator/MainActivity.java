@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,18 +29,22 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Fun (View v){
 
-        String num1 = firstNum.getText().toString();
-        String num2 = secondNum.getText().toString();
+        try {
+            String num1 = firstNum.getText().toString();
+            String num2 = secondNum.getText().toString();
 
-        double n1= Double.parseDouble(num1);
-        double n2 = Double.parseDouble(num2);
+            double n1= Double.parseDouble(num1);
+            double n2 = Double.parseDouble(num2);
 
-        if (v.getId()==R.id.sum){
-            res.setText("Sum is : "+(n1+n2));
-        }else if (v.getId()==R.id.mul){
-            res.setText("Multiply is : "+(n1*n2));
-        }else if (v.getId()==R.id.sub){
-            res.setText("Substract is : "+(n1-n2));
+            if (v.getId()==R.id.sum){
+                res.setText("Sum is : "+(n1+n2));
+            }else if (v.getId()==R.id.mul){
+                res.setText("Multiply is : "+(n1*n2));
+            }else if (v.getId()==R.id.sub){
+                res.setText("Substract is : "+(n1-n2));
+            }
+        }catch (Exception e){
+            Toast.makeText(this, "please input", Toast.LENGTH_SHORT).show();
         }
 
     }
